@@ -1,0 +1,106 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: cloudant-service
+
+disabledDeprecations:
+  - CODE_1 # To disable specific deprecation with code "CODE_1"
+  - '*' # To disable all deprecation messages
+configValidationMode: off
+
+# Remember to install project dependencies to register the provider plugin.
+# $ npm install
+provider:
+  name: openwhisk
+  namespace: 'pascal.abotsitse@web.de_dev'
+  ignore_certs: true
+
+functions:
+  prepare-entry-for-save:
+    handler: create-entry/prepare-entry-for-save.main
+    name: 'cloudant-service/prepare-entry-for-save'
+  save-entry-sequence:
+    name: 'cloudant-service/save-entry-sequence'
+    sequence:
+      - prepare-entry-for-save
+      - /pascal.abotsitse@web.de_dev/cloudant-service-binding/create-document
+    annotations:
+      web-export: true
+  format-entries:
+    handler: read-entries/format-entries.main
+    name: 'cloudant-service/format-entries'
+  set-read-input:
+    handler: read-entries/set-read-input.main
+    name: 'cloudant-service/set-read-input'
+  read-entries-sequence:
+    name: 'cloudant-service/read-entries-sequence'
+    sequence:
+      - set-read-input
+      - /pascal.abotsitse@web.de_dev/cloudant-service-binding/list-documents
+      - format-entries
+    annotations:
+      web-export: true
+  update-entry:
+    handler: update-entry/update-entry.main
+    name: 'cloudant-service/update-entry'
+  update-entry-sequence:
+    name: 'cloudant-service/update-entry-sequence'
+    sequence:
+      - update-entry
+      - /pascal.abotsitse@web.de_dev/cloudant-service-binding/update-document
+    annotations:
+      web-export: true
+  delete-entry:
+    handler: delete-entry/delete-entry.main
+    name: 'cloudant-service/delete-entry'
+  delete-entry-sequence:
+    name: 'cloudant-service/delete-entry-sequence'
+    sequence:
+      - delete-entry
+      - /pascal.abotsitse@web.de_dev/cloudant-service-binding/delete-document
+    annotations:
+      web-export: true
+  db-listener:
+    handler: db-listener/db-listener.main
+    name: 'cloudant-service/db-listener'
+  db-listener-sequence:
+    name: 'cloudant-service/db-listener-sequence'
+    sequence:
+      - /pascal.abotsitse@web.de_dev/cloudant-service-binding/read
+      - db-listener
+    events:
+      - trigger: cloudant-service-db-listener
+          # package: /pascal.abotsitse@web.de_dev/cloudant-service-binding
+          # db: mydatabase
+          # trigger: cloudant-service-db-listener
+          # feed: changes
+
+# extend the framework using plugins listed here:
+# https://github.com/serverless/plugins
+plugins:
+  - serverless-openwhisk
+
+resources:
+  triggers:
+    cloudant-service-db-listener:
+      parameters:
+      feed: /pascal.abotsitse@web.de_dev/cloudant-service-binding/changes
+      feed_parameters:
+        dbname: mydatabase
+        credentials: for-mydatabase
+
+
+  apigw:
+    name: cloudant-service
+    basepath: /cloudant-service
+    cors: true

@@ -1,0 +1,13 @@
+PropertiesDefinition:  
+  elementname: properties
+    namespace: http:/example.com/nodetypes/propertiesdefinition
+         
+         properties:
+            OpenWhiskNamespace:
+            type: string
+
+            OpenWhiskEndpoint:
+            type: string
+
+            API-Key:
+            type: string
