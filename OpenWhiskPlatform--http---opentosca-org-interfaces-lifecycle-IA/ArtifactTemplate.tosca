@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Definitions xmlns="http://docs.oasis-open.org/tosca/ns/2011/12" xmlns:winery="http://www.opentosca.org/winery/extensions/tosca/2013/02/12" xmlns:selfservice="http://www.eclipse.org/winery/model/selfservice" xmlns:testwineryopentoscaorg="http://test.winery.opentosca.org" targetNamespace="http://www.example.org/tosca/artifacttemplates" id="ateIgeneral-OpenWhiskPlatform--http---opentosca-org-interfaces-lifecycle-IA">
+    <ArtifactTemplate xmlns:otatyIgeneral="http://opentosca.org/artifacttypes" name="OpenWhiskPlatform--http---opentosca-org-interfaces-lifecycle-IA" type="otatyIgeneral:WAR" id="OpenWhiskPlatform--http---opentosca-org-interfaces-lifecycle-IA">
+        <Properties>
+            <WSProperties xmlns="http://www.opentosca.org/artifacttypes">
+                <ServiceEndpoint>/services/org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecyclePort</ServiceEndpoint>
+                <PortType>{http://nodetypeimplementations.tosca.www.example.org/}org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecycle</PortType>
+                <InvocationType>SOAP/HTTP</InvocationType>
+            </WSProperties>
+        </Properties>
+        <ArtifactReferences>
+            <ArtifactReference reference="artifacttemplates/http%253A%252F%252Fwww.example.org%252Ftosca%252Fartifacttemplates/OpenWhiskPlatform--http---opentosca-org-interfaces-lifecycle-IA/files/org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecycle.war"/>
+        </ArtifactReferences>
+    </ArtifactTemplate>
+</Definitions>

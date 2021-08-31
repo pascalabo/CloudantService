@@ -1,18 +1,20 @@
-### Insall OpenWhisk
+### OpenWhisk Installieren
 
 `brew update`
 
 `brew install wsk`
 
-## Verify the installation
+## Installation verifizieren
 `wsk --help`
 
-### Insall IBM Cloud CLI
+### IBM Cloud CLI installieren
 `curl -sL https://raw.githubusercontent.com/IBM-Cloud/ibm-cloud-developer-tools/master/linux-installer/idt-installer | bash`
 
-## Verify the installation
+## Installation verifizieren
+
 `ibmcloud dev help`
 
+## IBM Cloud Zugang erstellen
 * Die Funktionen habe ich in meinem IBM Cloud zugang deployed. Für das Deployment ist ein eigener IBM Cloud Zugang erforderlich <https://cloud.ibm.com/login>
 
 * Ist dieser erstellt muss ein Cloudant Service erstellt werden. <https://cloud.ibm.com/catalog/services/cloudant?bss_account=ba3ff5448d654ed896e373d2e64aeb5a>
@@ -37,35 +39,37 @@
 
 `wsk property get`
 
-## Deploy with serverless
+## Deploy mit Serverless-Framework
 
-* For dem Deployment in der serverless.yml mit "replace all" /pascal.abotsitse@web.de_dev/ mit eigenem namespace austauschen.
-
+* Vor dem Deployment in der serverless.yml mit "replace all" /pascal.abotsitse@web.de_dev/ mit eigenem namespace austauschen.
 
 ### WSK Commands
 
 Anschließend
 
-* Refresh the packages in your namespace. The refresh automatically creates a package binding for each Cloudant service instance that has a credential key defined.
+* Pakete im Namespace aktualisieren. Die Aktualisierung erstellt automatisch eine Paketbindung für jede Cloudant-Dienstinstanz, für die ein Berechtigungsschlüssel definiert ist.
 
-`wsk package refresh`
+- `wsk package refresh`
 
-`wsk package bind /whisk.system/cloudant  cloudant-service-binding --param dbname mydatabase`
+- `wsk package bind /whisk.system/cloudant  cloudant-service-binding --param dbname mydatabase`
 
-`wsk package refresh`
-
-`wsk package create cloudant-service`
+-`wsk package create cloudant-service`
 
 * Im CLI ins Verzeichnis CloudantService/serverless navigieren
 
 `serverless deploy`
 
-# Trigger austauschen
+# Trigger austauschen wenn mit
+
+- mit `wsk trigger get cloudant-service-db-listener` Trigger aufrufen und überprüfen ob in den configs die Datenbankcredentials vorhanden sind
+- Sind diese vorhanden weiter mit "Action save-database-entry ausführen"
+- Sind diese nicht vorhanden:
+
 - Unter <https://cloud.ibm.com/functions/actions> in die Funktion db-listener-sequence navigieren
 - Unter Connected Triggers `cloudant-service-db-listener` löschen oder disablen
 - Dann mit Add Trigger neuen Trigger erstellen -> Cloudant -> Namen eingeben -> Create
 
-# Funktion save-database-entry ausführen
+# Action save-database-entry ausführen
 
 - Zweites CLI Fenster öffnen und mit `wsk actionctivation poll` die Logs aktivieren
 

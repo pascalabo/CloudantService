@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecycleService" targetNamespace="http://nodetypeimplementations.tosca.www.example.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://nodetypeimplementations.tosca.www.example.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://nodetypeimplementations.tosca.www.example.org/" elementFormDefault="unqualified" targetNamespace="http://nodetypeimplementations.tosca.www.example.org/" version="1.0">
+<xs:element name="configure" type="tns:configure"/>
+<xs:element name="install" type="tns:install"/>
+<xs:complexType name="install">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="function_name" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="runtime" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="api_host" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="auth_key" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="namespace" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="configure">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="event_name" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="event_type" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="function_name" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="rule_name" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="binding" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="api_host" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="auth_key" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="namespace" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="configure">
+    <wsdl:part name="parameters" element="tns:configure">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="install">
+    <wsdl:part name="parameters" element="tns:install">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecycle">
+    <wsdl:operation name="install">
+      <wsdl:input name="install" message="tns:install">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="configure">
+      <wsdl:input name="configure" message="tns:configure">
+    </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecycleServiceSoapBinding" type="tns:org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecycle">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="install">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="install">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="configure">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="configure">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecycleService">
+    <wsdl:port name="org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecyclePort" binding="tns:org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecycleServiceSoapBinding">
+      <soap:address location="http://localhost:9090/org_example_www_tosca_nodetypes_OpenWhiskPlatform__org_opentosca_interfaces_lifecyclePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
