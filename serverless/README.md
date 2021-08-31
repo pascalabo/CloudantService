@@ -1,3 +1,78 @@
+### Insall OpenWhisk
+
+`brew update`
+`brew install wsk`
+
+## Verify the installation
+`wsk --help`
+
+### Insall IBM Cloud CLI
+`curl -sL https://raw.githubusercontent.com/IBM-Cloud/ibm-cloud-developer-tools/master/linux-installer/idt-installer | bash`
+
+## Verify the installation
+`ibmcloud dev help`
+
+* Die Funktionen habe ich in meinem IBM Cloud zugang deployt. Für das Deployment ist ein eigener IBM Cloud Zugang erforderlich <https://cloud.ibm.com/login>
+
+* Ist dieser Erstellt muss ein Cloudant Service erstellt werden. <https://cloud.ibm.com/catalog/services/cloudant?bss_account=ba3ff5448d654ed896e373d2e64aeb5a>
+    Region auf Frankfurt oder London
+    Instance: cloudant-db
+    Resourcegroup: Default
+    Plan: Lite
+
+* Nach Erstellung anschließend unter Resource List in Cloudant-Service navigieren
+    -Unter Launch Dashboard in die Cloudand Oberfläche navigieren <https://f45419af-37aa-4745-918a-a2dea44a7789-bluemix.cloudant.com/dashboard.html#/_all_dbs>
+    - Dann eine neue Datenbank erstellen: name: mydatabase
+
+* Unter Recource List <https://cloud.ibm.com/resources> wiederin Cloudant-Service navigieren und neuen Berechtigungs nachweis erstellen: name for-mydatabase, role: manager
+
+## Login in Command Line Interface
+
+`ibmcloud login`
+
+`ibmcloud target --cf`
+
+`wsk property get`
+
+## Deploy with serverless
+
+* For dem Deployment in der serverless.yml mit "replace all" /pascal.abotsitse@web.de_dev/ mit eigenem namespace austauschen.
+
+
+### WSK Commands
+
+Anschließend
+
+* Refresh the packages in your namespace. The refresh automatically creates a package binding for each Cloudant service instance that has a credential key defined.
+
+`wsk package refresh`
+
+`wsk package bind /whisk.system/cloudant  cloudant-service-binding --param dbname mydatabase`
+
+`wsk package refresh`
+
+`wsk package create cloudant-service`
+
+* Im CLI ins Verzeichnis CloudantService/serverless navigieren
+
+`serverless deploy`
+
+# Trigger austauschen
+- Unter <https://cloud.ibm.com/functions/actions> in dbb-listener-sequence navigieren
+- Unter Connected Triggers cloudant-service-db-listener löschen oder disable
+- Dann mit Add Trigger neuen Trigger erstellen -> Cloudant namen eingebben und Create
+
+# Invoke function save-database-entry with parameter
+
+- Im CLI
+  Zweites CLI Fenster öffnen und mit `wsk actionctivation poll` Tracking aktivieren
+
+- Dannach
+`wsk action invoke --result /_/cloudant-service/save-entry-sequence --param name Name --param email Email`
+
+- Im zweiten Fenster auf ausput warten
+
+
 # Serverless OpenWhisk Node.js Template
 
 Hello! 😎
