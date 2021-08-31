@@ -1,3 +1,6 @@
+## Dieses Projekt beinhaltet die Serverless Funktionen für OpenWhisk
+    - Das Deployment wird mir dem Serverless-Framwork realisiert
+
 ### OpenWhisk Installieren
 
 `brew update`
@@ -8,6 +11,7 @@
 `wsk --help`
 
 ### IBM Cloud CLI installieren
+
 `curl -sL https://raw.githubusercontent.com/IBM-Cloud/ibm-cloud-developer-tools/master/linux-installer/idt-installer | bash`
 
 ## Installation verifizieren

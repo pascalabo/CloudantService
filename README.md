@@ -1,7 +1,12 @@
 
 ## Dieses Repository umfasst alle Dateien in Verbindung mit der Erstellung des Protoypen  
 
-OpenTOSCA mit [Docker Compose](https://docs.docker.com/compose/) nutzen
+  - Winery Repository: tosca-definitions-example-applications-main
+  - Maven Project OpenWhiskPlatform--http---opentosca-org-interfaces-lifecycle-IA
+  - serverless: Serverless Funktionen für OpenWhisk
+
+
+## OpenTOSCA mit [Docker Compose](https://docs.docker.com/compose/) nutzen
 
 * Repoitory https://github.com/OpenTOSCA/opentosca-docker clonen
 * Zuerst `.env` File erstellen, dazu `_.env` kopieren
