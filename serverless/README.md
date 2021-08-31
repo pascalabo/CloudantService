@@ -1,5 +1,6 @@
 ## Dieses Projekt beinhaltet die Serverless Funktionen für OpenWhisk
-    -Das Deployment wird mir dem Serverless-Framwork realisiert
+
+* Das Deployment wird mir dem Serverless-Framework realisiert
 
 ### OpenWhisk Installieren
 
@@ -43,7 +44,7 @@
 
 `wsk property get`
 
-## Deploy mit Serverless-Framework
+## Deployment mit Serverless-Framework
 
 * Vor dem Deployment in der serverless.yml mit "replace all" /pascal.abotsitse@web.de_dev/ mit eigenem namespace austauschen.
 
@@ -82,7 +83,9 @@ Anschließend
 
 - Im zweiten Fenster auf Output warten
 
-# Readme von Serverless-Framwork
+
+
+## Nachfolgend die Readme von Serverless-Framwork
 
 # Serverless OpenWhisk Node.js Template
 
