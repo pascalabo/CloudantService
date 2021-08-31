@@ -83,7 +83,7 @@ Anschließend
 
 - Im zweiten Fenster auf Output warten
 
-
+- Done!
 
 # Nachfolgend die Readme von Serverless-Framwork
 
