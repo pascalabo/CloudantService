@@ -8,7 +8,7 @@ OpenTOSCA mit [Docker Compose](https://docs.docker.com/compose/) nutzen
 * Dann eigene lokale IP-Adresse der Variable `PUBLIC_HOSTNAME` zu weisen.
 
 * Anschließend `docker-compose.override.yml` file erstellen, dazu `_docker-compose.override.yml` kopieren.
-* Folgende Anpassungen vornehmen um das mit gelieferte Repository (tosca-definitions-example-applications-main:) zu mappen:
+* Folgende Anpassungen vornehmen um das mit gelieferte Repository (CloudantService/tosca-definitions-example-applications-main:) zu mappen:
 
   ```yaml
     winery:
