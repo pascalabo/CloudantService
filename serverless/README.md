@@ -1,5 +1,5 @@
 ## Dieses Projekt beinhaltet die Serverless Funktionen für OpenWhisk
-    - Das Deployment wird mir dem Serverless-Framwork realisiert
+    -Das Deployment wird mir dem Serverless-Framwork realisiert
 
 ### OpenWhisk Installieren
 
