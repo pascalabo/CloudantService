@@ -1,10 +1,11 @@
 
 * Install OpenTOSCA
 
-* Zu erst `.env` erstellen, dazu `_.env` kopieren
-* Dann lokale IP-Adresse der `PUBLIC_HOSTNAME` variable anpassen und speichern.
+* Repoitory https://github.com/OpenTOSCA/opentosca-docker clonen
+* Zuerst `.env` File erstellen, dazu `_.env` kopieren
+* Dann eigene lokale IP-Adresse der Variable `PUBLIC_HOSTNAME` zu weisen.
 
-* Anschließend`docker-compose.override.yml` file erstellen, dazu `_docker-compose.override.yml` kopieren.
+* Anschließend `docker-compose.override.yml` file erstellen, dazu `_docker-compose.override.yml` kopieren.
 * Folgende Anpassungen vornehmen um das mit gelieferte Repository zu mappen:
 
   ```yaml
@@ -23,7 +24,7 @@
       WINERY_REPOSITORY_PATH: /var/opentosca/repository
 ```
 
-* Dann speichern
+* Speichern
 * Dann `docker-compose` up Befehl ausführen. Warten bis die Docker Container fertig gestartet sind.
 * unter kann winery erreicht werden
 * unter .. kan TOSCA UI erreicht werden
