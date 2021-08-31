@@ -21,11 +21,13 @@
     - Resourcegroup: Default
     - Plan: Lite
 
-* Nach Erstellung anschließend unter Resource List in Cloudant-Service navigieren
+* Nach Erstellung anschließend unter Resource List <https://cloud.ibm.com/resources> in Cloudant-Service navigieren
     - Unter Launch Dashboard in die Cloudand Oberfläche navigieren <https://f45419af-37aa-4745-918a-a2dea44a7789-bluemix.cloudant.com/dashboard.html#/_all_dbs>
     - Dann eine neue Datenbank erstellen: name: mydatabase
 
-* Unter Recource List <https://cloud.ibm.com/resources> wiederin Cloudant-Service navigieren und neuen Berechtigungs nachweis erstellen: name for-mydatabase, role: manager
+* Unter Recource List <https://cloud.ibm.com/resources> wieder in Cloudant-Service navigieren und neuen Berechtigungsnachweis erstellen: 
+ - name for-mydatabase
+ - role: manager
 
 ## Login in Command Line Interface
 
@@ -59,20 +61,20 @@ Anschließend
 `serverless deploy`
 
 # Trigger austauschen
-- Unter <https://cloud.ibm.com/functions/actions> in dbb-listener-sequence navigieren
-- Unter Connected Triggers cloudant-service-db-listener löschen oder disable
-- Dann mit Add Trigger neuen Trigger erstellen -> Cloudant namen eingebben und Create
+- Unter <https://cloud.ibm.com/functions/actions> in die Funktion db-listener-sequence navigieren
+- Unter Connected Triggers `cloudant-service-db-listener` löschen oder disablen
+- Dann mit Add Trigger neuen Trigger erstellen -> Cloudant -> Namen eingeben -> Create
 
-# Invoke function save-database-entry with parameter
+# Funktion save-database-entry ausführen
 
-- Im CLI
-  Zweites CLI Fenster öffnen und mit `wsk actionctivation poll` Tracking aktivieren
+- Zweites CLI Fenster öffnen und mit `wsk actionctivation poll` die Logs aktivieren
 
-- Dannach
-`wsk action invoke --result /_/cloudant-service/save-entry-sequence --param name Name --param email Email`
+- Dannach mit Funktion ausführen 
+- `wsk action invoke --result /_/cloudant-service/save-entry-sequence --param name Name --param email Email`
 
-- Im zweiten Fenster auf ausput warten
+- Im zweiten Fenster auf Output warten
 
+# Readme von Serverless-Framwork
 
 # Serverless OpenWhisk Node.js Template
 
