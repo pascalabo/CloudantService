@@ -1,6 +1,7 @@
 ### Insall OpenWhisk
 
 `brew update`
+
 `brew install wsk`
 
 ## Verify the installation
@@ -12,16 +13,16 @@
 ## Verify the installation
 `ibmcloud dev help`
 
-* Die Funktionen habe ich in meinem IBM Cloud zugang deployt. Für das Deployment ist ein eigener IBM Cloud Zugang erforderlich <https://cloud.ibm.com/login>
+* Die Funktionen habe ich in meinem IBM Cloud zugang deployed. Für das Deployment ist ein eigener IBM Cloud Zugang erforderlich <https://cloud.ibm.com/login>
 
-* Ist dieser Erstellt muss ein Cloudant Service erstellt werden. <https://cloud.ibm.com/catalog/services/cloudant?bss_account=ba3ff5448d654ed896e373d2e64aeb5a>
-    Region auf Frankfurt oder London
-    Instance: cloudant-db
-    Resourcegroup: Default
-    Plan: Lite
+* Ist dieser erstellt muss ein Cloudant Service erstellt werden. <https://cloud.ibm.com/catalog/services/cloudant?bss_account=ba3ff5448d654ed896e373d2e64aeb5a>
+    - Region auf Frankfurt oder London
+    - Instance: cloudant-db
+    - Resourcegroup: Default
+    - Plan: Lite
 
 * Nach Erstellung anschließend unter Resource List in Cloudant-Service navigieren
-    -Unter Launch Dashboard in die Cloudand Oberfläche navigieren <https://f45419af-37aa-4745-918a-a2dea44a7789-bluemix.cloudant.com/dashboard.html#/_all_dbs>
+    - Unter Launch Dashboard in die Cloudand Oberfläche navigieren <https://f45419af-37aa-4745-918a-a2dea44a7789-bluemix.cloudant.com/dashboard.html#/_all_dbs>
     - Dann eine neue Datenbank erstellen: name: mydatabase
 
 * Unter Recource List <https://cloud.ibm.com/resources> wiederin Cloudant-Service navigieren und neuen Berechtigungs nachweis erstellen: name for-mydatabase, role: manager
