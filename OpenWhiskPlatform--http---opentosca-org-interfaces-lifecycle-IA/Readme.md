@@ -1,1 +1,1 @@
-
+# Dies ist der automatisch generierte Java Web Service mit Maven

@@ -32,6 +32,8 @@ OpenTOSCA mit [Docker Compose](https://docs.docker.com/compose/) nutzen
 * In die Detailansicht navigieren und unter `+`  und `instantiate`den Build-Plan ausführen und eine neue Instanz erstellen
 * Unter <http://localhost:9763/ode/#/instances> können die Ausführung der Management-Pläne eingesehen werden
 
+* Unter <<http://localhost:8080> können in Winery die TOSCA-Komponenten angesehen werden
+
 | OpenTOSCA Component | URL | GitHub | Docker Hub |
 |:------------------- |:--- |:------ |:---------- |
 | OpenTOSCA UI | <http://localhost><br><http://localhost:8088> | [Link](https://github.com/OpenTOSCA/ui) | [Link](https://hub.docker.com/r/opentosca/ui) |
