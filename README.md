@@ -17,7 +17,7 @@ OpenTOSCA mit [Docker Compose](https://docs.docker.com/compose/) nutzen
       environment:
         WINERY_REPOSITORY_PATH: /var/opentosca/repository
     ```
-* Bei mir was es:
+* Bei mir so:
   ```yaml
     winery:
       volumes:
