@@ -6,7 +6,7 @@ OpenTOSCA mit [Docker Compose](https://docs.docker.com/compose/) nutzen
 * Dann eigene lokale IP-Adresse der Variable `PUBLIC_HOSTNAME` zu weisen.
 
 * Anschließend `docker-compose.override.yml` file erstellen, dazu `_docker-compose.override.yml` kopieren.
-* Folgende Anpassungen vornehmen um das mit gelieferte Repository zu mappen:
+* Folgende Anpassungen vornehmen um das mit gelieferte Repository (tosca-definitions-example-applications-main:) zu mappen:
 
   ```yaml
     winery:
@@ -16,13 +16,13 @@ OpenTOSCA mit [Docker Compose](https://docs.docker.com/compose/) nutzen
         WINERY_REPOSITORY_PATH: /var/opentosca/repository
     ```
 * Bei mir was es:
-```yaml
-   winery:
-    volumes:
-      - /Users/abotsitsepa/OpenTOSCA/tosca-definitions-example-applications-main:/var/opentosca/repository
-    environment:
-      WINERY_REPOSITORY_PATH: /var/opentosca/repository
-```
+  ```yaml
+    winery:
+      volumes:
+        - /Users/abotsitsepa/OpenTOSCA/tosca-definitions-example-applications-main:/var/opentosca/repository
+      environment:
+        WINERY_REPOSITORY_PATH: /var/opentosca/repository
+  ```
 
 * Speichern
 * Dann `docker-compose up` Befehl ausführen. Warten bis die Docker Container fertig gestartet sind.
